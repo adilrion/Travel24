@@ -2,12 +2,13 @@ import React from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import logo from "../../Images/black-01.jpg";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Home", href: "#", current: true },
+  { name: "Blog", href: "#", current: false },
+  { name: "Next Trip", href: "#", current: false },
+  { name: "About US", href: "#", current: false },
 ];
 
 function classNames(...classes) {
@@ -33,15 +34,10 @@ const Navigation = () => {
                   </Disclosure.Button>
                 </div>
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex-shrink-0 flex items-center">
+                  <div className="flex-shrink-0 flex items-center ">
                     <img
-                      className="block lg:hidden h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                      alt="Workflow"
-                    />
-                    <img
-                      className="hidden lg:block h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                      className="hidden lg:block h-8 w-auto rounded-full"
+                      src={logo}
                       alt="Workflow"
                     />
                   </div>
@@ -95,7 +91,7 @@ const Navigation = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-40">
                         <Menu.Item>
                           {({ active }) => (
                             <a

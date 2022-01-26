@@ -1,0 +1,21 @@
+.banner-section {
+  background-image: url("../../Images/banner bg.jpg");
+  height: 80vh;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner-details {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  padding: 5% 2%;
+}
+.banner {
+  width: 100%;
+  height: 60vh;
+}
+.banner > img {
+  width: 100%;
+  height: 100%;
+}
