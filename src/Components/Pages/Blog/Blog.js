@@ -49,12 +49,12 @@ const Blog = () => {
   return (
     <div id="blog" className="p-2 bg-gray-200">
       <article className="article-section py-10">
-        <div className=" max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-flow-row-dense grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-flow-row-dense lg:grid-cols-3 sm:grid-clos-1 gap-8">
           <div className="article col-span-2">
             {blog.map((blog) => (
-              <div className=" bg-white flex max-w-full shadow-md rounded-md mb-10">
+              <div className=" bg-white flex flex-col md:flex-row lg:flex-row max-w-full shadow-md rounded-md mb-10">
                 <img
-                  class="w-2/6 rounded-l-md"
+                  class="w-6/6 md:w-2/6 rounded-t-md md:rounded-tr-none md:rounded-l-md"
                   src={blog.imageUrl}
                   alt="Mountain"
                 />
@@ -89,7 +89,7 @@ const Blog = () => {
             ))}
           </div>
 
-          <div className="  flex flex-col-reverse popular-article   bg-white h-fit  w-full px-5  py-2  rounded-md ">
+          <div className="col-span-2 lg:col-span-1 flex flex-col-reverse popular-article bg-white h-fit  w-full px-5 py-2 rounded-md ">
             {blog.map((blog) => (
               <div class="border-b-2 border-gray-300 first:border-none ">
                 <div class=" py-2 ">
