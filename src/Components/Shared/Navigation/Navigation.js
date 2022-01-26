@@ -1,14 +1,16 @@
 import React from "react";
 import { Fragment } from "react";
+import { HashLink } from "react-router-hash-link";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import logo from "../../Images/black-01.jpg";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "Blog", href: "#", current: false },
-  { name: "Next Trip", href: "#", current: false },
-  { name: "About US", href: "#", current: false },
+  { name: "Home", href: "home", current: true },
+  { name: "Blog", href: "blog", current: false },
+  { name: "Next Trip", href: "next-trip", current: false },
+  { name: "About US", href: "about-us", current: false },
 ];
 
 function classNames(...classes) {
@@ -44,9 +46,15 @@ const Navigation = () => {
                   <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
+                        <HashLink
+                          // as={HashLink}
+                          to={`home#${item.href}`}
+                          scroll={(el) =>
+                            el.scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                            })
+                          }
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"
@@ -56,7 +64,7 @@ const Navigation = () => {
                           aria-current={item.current ? "page" : undefined}
                         >
                           {item.name}
-                        </a>
+                        </HashLink>
                       ))}
                     </div>
                   </div>
@@ -94,41 +102,41 @@ const Navigation = () => {
                       <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-40">
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <Link
+                              to="#"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Your Profile
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <Link
+                              to="#"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Settings
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <Link
+                              to="#"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Sign out
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                       </Menu.Items>

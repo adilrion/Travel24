@@ -13,7 +13,6 @@ const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slideRef = useRef();
-
   const removeAnimation = () => {
     slideRef.current.classList.remove("fade-anim");
   };
@@ -59,8 +58,6 @@ const Banner = () => {
           <div className="banner">
             <img src={featuredProducts[currentIndex]} alt="" />
           </div>
-          <h1>adil majsoidjfj </h1>
-
           <div className="absolute w-full top-1/2 transform -translate-y-1/2 px-3 flex justify-between items-center">
             <button
               className="bg-black text-white p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition"
