@@ -97,7 +97,7 @@ const Blog = () => {
                     {`${blog.title.slice(0, 35).concat("...")}`}
                   </h2>
                   <p class="text-gray-700">
-                    {`${blog.description.slice(0, 100).concat("...")}`}
+                    {`${blog.description.slice(0, 92).concat("..")}`}
 
                     <Link to="/" class="text-yellow-400">
                       Read More

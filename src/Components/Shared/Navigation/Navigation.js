@@ -19,7 +19,7 @@ function classNames(...classes) {
 const Navigation = () => {
   return (
     <>
-      <Disclosure as="nav" className="bg-gray-800 w-full fixed top-0 z-40">
+      <Disclosure as="nav" className="bg-neutral-800 w-full fixed top-0 z-40">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -57,8 +57,8 @@ const Navigation = () => {
                           }
                           className={classNames(
                             item.current
-                              ? "bg-gray-900 text-white"
-                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                              ? "bg-cyan-600 text-white"
+                              : "text-gray-200 hover:bg-cyan-600 hover:text-white",
                             "px-3 py-2 rounded-md text-sm font-medium"
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -79,6 +79,20 @@ const Navigation = () => {
                   </button>
 
                   {/* Profile dropdown */}
+                  <div>
+                    <Link
+                      to="/log-in"
+                      className="rounded-md px-3 py-2 mr-2  text-base font-medium text-white hover:bg-gray-800"
+                    >
+                      Sign in
+                    </Link>
+                    <Link
+                      to="button"
+                      className="rounded-md px-3 py-2 border-solid border-2 border-sky-500 text-base font-medium text-white hover:bg-cyan-600 "
+                    >
+                      Sign up
+                    </Link>
+                  </div>
                   <Menu as="div" className="ml-3 relative">
                     <div>
                       <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
