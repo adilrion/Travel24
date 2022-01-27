@@ -27,30 +27,22 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   // ...............user Registration...................//
-  const registerUser = (
-    email,
-    password,
-    firstName,
-    lastName,
-    number,
-    gender,
-    history
-  ) => {
+  const registerUser = (email, password, name, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setAuthError("");
-        const newUser = { email, displayName: firstName };
+        const newUser = { email, displayName: name };
         setUser(newUser);
         // save user to the database
-        saveUser(email, firstName, lastName, number, password, gender, "POST");
+        saveUser(email, name, password, "POST");
         // send name to firebase after creation
         updateProfile(auth.currentUser, {
-          displayName: firstName,
+          displayName: name,
         })
           .then(() => {})
           .catch((error) => {});
-        history("/phoneAuthentication");
+        history("/");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -158,24 +150,14 @@ const useFirebase = () => {
   //.......................End.........................//
 
   //......................Save User Registration info to Mongodb.......................//
-  const saveUser = (
-    email,
-    firstName,
-    lastName,
-    number,
-    password,
-    gender,
-    method
-  ) => {
+  const saveUser = (email, name, password, method) => {
     const user = {
       email,
-      firstName: firstName + " " + lastName,
-      number,
+      name,
       password,
-      gender,
       photoURL: "",
     };
-    fetch("https://obscure-atoll-04975.herokuapp.com/users", {
+    fetch("http://localhost:5000/users", {
       method: method,
       headers: {
         "content-type": "application/json",

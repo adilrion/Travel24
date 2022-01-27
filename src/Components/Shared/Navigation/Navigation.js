@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/black-01.jpg";
+import written from "../../Images/written icon.png";
 
 const navigation = [
   { name: "Home", href: "home", current: true },
@@ -18,7 +19,6 @@ function classNames(...classes) {
 }
 const Navigation = () => {
   const { user, logout } = useAuth();
-  console.log(user.email);
 
   return (
     <>
@@ -85,8 +85,13 @@ const Navigation = () => {
                   {/* Profile dropdown */}
                   {user.email ? (
                     <Menu as="div" className="ml-3 relative">
-                      <div>
-                        <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      <div className="flex">
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src={written}
+                          alt=""
+                        />
+                        <Menu.Button className="bg-gray-800 ml-4 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"

@@ -11,10 +11,31 @@ import Navigation from "../Navigation/Navigation";
 import "./LogIn.css";
 
 const LogIn = () => {
-  const { signInWithGoogle } = useAuth();
-  const [newUser, setSetNewUser] = useState(true);
-
   const history = useNavigate();
+  const { signInWithGoogle, registerUser, loginUser } = useAuth();
+  const [newUser, setSetNewUser] = useState(true);
+  const [loginData, setLoginData] = useState({});
+  console.log(loginData);
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    loginUser(loginData.email, loginData.password, history);
+  };
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    if (loginData.password !== loginData.confirmPassword) {
+      alert("Your password did not match");
+      return;
+    }
+    registerUser(loginData.email, loginData.password, loginData.name, history);
+  };
 
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
@@ -49,7 +70,7 @@ const LogIn = () => {
               </h2>
             </div>
             {newUser ? (
-              <form className="mt-8 space-y-6" action="#" method="POST">
+              <form className="mt-8 space-y-6" onSubmit={handleSignIn}>
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="rounded-md shadow-sm -space-y-px">
                   <div>
@@ -63,7 +84,8 @@ const LogIn = () => {
                       id="email-address"
                       name="email"
                       type="email"
-                      autoComplete="email"
+                      onChange={handleOnBlur}
+                      // autoComplete="email"
                       required
                       className="appearance-none mb-2 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Email address"
@@ -80,7 +102,8 @@ const LogIn = () => {
                       id="password"
                       name="password"
                       type="password"
-                      autoComplete="current-password"
+                      onChange={handleOnBlur}
+                      // autoComplete="current-password"
                       required
                       className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Password"
@@ -124,7 +147,8 @@ const LogIn = () => {
                 </div>
               </form>
             ) : (
-              <form className="mt-8 space-y-6" action="#" method="POST">
+              /*------------------Registration user------------------- */
+              <form className="mt-8 space-y-6" onSubmit={handleLoginSubmit}>
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="rounded-md shadow-sm -space-y-px">
                   <div>
@@ -138,9 +162,9 @@ const LogIn = () => {
                       id="email-address"
                       name="name"
                       type="text"
-                      autoComplete="Full Name"
+                      onBlur={handleOnBlur}
                       required
-                      className="appearance-none mb-2 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      className="appearance-none mb-2 rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Full Name"
                     />
                   </div>
@@ -155,9 +179,10 @@ const LogIn = () => {
                       id="email-address"
                       name="email"
                       type="email"
+                      onBlur={handleOnBlur}
                       autoComplete="email"
                       required
-                      className="appearance-none mb-2 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      className="appearance-none mb-2 mb-2 rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Email address"
                     />
                   </div>
@@ -172,15 +197,32 @@ const LogIn = () => {
                       id="password"
                       name="password"
                       type="password"
-                      autoComplete="current-password"
+                      onBlur={handleOnBlur}
                       required
-                      className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      className="appearance-none mb-2 relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Password"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sky-400/100 font-medium text-xl">
+                      Confirm Password<span className="text-yellow-500">*</span>
+                    </p>
+                    <label htmlFor="password" className="sr-only">
+                      Confirm Password
+                    </label>
+                    <input
+                      id="password"
+                      name="confirmPassword"
+                      type="password"
+                      onBlur={handleOnBlur}
+                      required
+                      className="appearance-none mb-2 relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      placeholder="confirm Password"
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center mb-2 justify-between">
                   <div className="flex items-center">
                     <input
                       id="remember-me"
@@ -220,7 +262,7 @@ const LogIn = () => {
             <div>
               {newUser ? (
                 <p className="text-white font-medium text-xl">
-                  New to GitHub?{" "}
+                  New to Travel24?{" "}
                   <button onClick={handleNewUser} className="text-cyan-600">
                     Create an account →
                   </button>
