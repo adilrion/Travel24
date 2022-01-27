@@ -151,15 +151,9 @@ const Navigation = () => {
                     <div>
                       <Link
                         to="/log-in"
-                        className="rounded-md px-3 py-2 mr-2  text-base font-medium text-white hover:bg-gray-800"
+                        className="rounded-md px-3 ml-4 py-2 border-solid border-2 border-sky-500 text-base font-medium text-white hover:bg-cyan-600 "
                       >
-                        Sign in
-                      </Link>
-                      <Link
-                        to="button"
-                        className="rounded-md px-3 py-2 border-solid border-2 border-sky-500 text-base font-medium text-white hover:bg-cyan-600 "
-                      >
-                        Sign up
+                        Sign in →
                       </Link>
                     </div>
                   )}
