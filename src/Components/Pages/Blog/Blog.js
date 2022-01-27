@@ -1,7 +1,7 @@
 import React from "react";
-import "./Blog.css";
-import avatar from "../../Images/avatar.png";
 import { Link } from "react-router-dom";
+import avatar from "../../Images/avatar.png";
+import "./Blog.css";
 
 const blog = [
   {
@@ -52,35 +52,40 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-flow-row-dense lg:grid-cols-3 sm:grid-clos-1 gap-8">
           <div className="article col-span-2">
             {blog.map((blog) => (
-              <div className=" bg-white flex flex-col md:flex-row lg:flex-row max-w-full shadow-md rounded-md mb-10">
+              <div
+                className=" bg-white flex flex-col md:flex-row lg:flex-row max-w-full shadow-md rounded-md mb-10"
+                key={blog.id}
+              >
                 <img
-                  class="w-6/6 md:w-2/6 rounded-t-md md:rounded-tr-none md:rounded-l-md"
+                  className="w-6/6 md:w-2/6 rounded-t-md md:rounded-tr-none md:rounded-l-md"
                   src={blog.imageUrl}
                   alt="Mountain"
                 />
                 <div>
-                  <div class="px-6 py-4">
-                    <h1 class="font-bold text-2xl mb-2">{`${blog.title
+                  <div className="px-6 py-4">
+                    <h1 className="font-bold text-2xl mb-2">{`${blog.title
                       .slice(0, 80)
                       .concat("...")}`}</h1>
-                    <p class="text-gray-700 text-base">
+                    <p className="text-gray-700 text-base">
                       {`${blog.description.slice(0, 250).concat("...")}`}
 
-                      <Link to="/" class="text-yellow-400">
+                      <Link to="/" className="text-yellow-400">
                         Read More
                       </Link>
                     </p>
                   </div>
-                  <div class="px-6  pb-2">
-                    <div class="flex items-center ">
+                  <div className="px-6  pb-2">
+                    <div className="flex items-center ">
                       <img
-                        class="w-10 h-10 rounded-full mr-4"
+                        className="w-10 h-10 rounded-full mr-4"
                         src={avatar}
                         alt="Avatar of Writer"
                       />
-                      <div class="text-sm">
-                        <p class="text-gray-900 leading-none">{blog.writer}</p>
-                        <p class="text-gray-600">Aug 18</p>
+                      <div className="text-sm">
+                        <p className="text-gray-900 leading-none">
+                          {blog.writer}
+                        </p>
+                        <p className="text-gray-600">Aug 18</p>
                       </div>
                     </div>
                   </div>
@@ -91,15 +96,18 @@ const Blog = () => {
 
           <div className="col-span-2 lg:col-span-1 flex flex-col-reverse popular-article bg-white h-fit  w-full px-5 py-2 rounded-md ">
             {blog.map((blog) => (
-              <div class="border-b-2 border-gray-300 first:border-none ">
-                <div class=" py-2 ">
-                  <h2 class="text-2xl font-bold mb-2 text-gray-800">
+              <div
+                className="border-b-2 border-gray-300 first:border-none "
+                key={blog.id}
+              >
+                <div className=" py-2 ">
+                  <h2 className="text-2xl font-bold mb-2 text-gray-800">
                     {`${blog.title.slice(0, 35).concat("...")}`}
                   </h2>
-                  <p class="text-gray-700">
+                  <p className="text-gray-700">
                     {`${blog.description.slice(0, 92).concat("..")}`}
 
-                    <Link to="/" class="text-yellow-400">
+                    <Link to="/" className="text-yellow-400">
                       Read More
                     </Link>
                   </p>

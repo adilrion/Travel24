@@ -54,7 +54,10 @@ const Banner = () => {
   return (
     <section className="banner-section">
       <div className="banner-details max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
-        <div ref={slideRef} className="select-none relative">
+        <div
+          ref={slideRef}
+          className="select-none banner-page  mt-28 md:mt-10 relative"
+        >
           <div className="banner">
             <img src={featuredProducts[currentIndex]} alt="" />
           </div>

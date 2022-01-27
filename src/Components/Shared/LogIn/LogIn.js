@@ -1,17 +1,17 @@
-import React from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./LogIn.css";
+import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/black-01.jpg";
-import google from "../../Images/g.png";
 import facebook from "../../Images/f.png";
-import twitter from "../../Images/tw.png";
+import google from "../../Images/g.png";
 import instaram from "../../Images/insta.png";
+import twitter from "../../Images/tw.png";
 import Navigation from "../Navigation/Navigation";
-import UseAuth from "../../Hooks/FirebaseHooks/UseAuth";
+import "./LogIn.css";
 
 const LogIn = () => {
-  const { signInWithGoogle } = UseAuth();
+  const { signInWithGoogle } = useAuth();
 
   const history = useNavigate();
 
