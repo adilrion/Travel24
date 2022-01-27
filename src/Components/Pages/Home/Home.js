@@ -7,13 +7,13 @@ import NextTrip from "../NextTrip/NextTrip";
 
 const Home = () => {
   return (
-    <>
+    <div id="home">
       <Navigation></Navigation>
       <Banner></Banner>
       <Blog></Blog>
       <NextTrip></NextTrip>
       <AboutUs></AboutUs>
-    </>
+    </div>
   );
 };
 

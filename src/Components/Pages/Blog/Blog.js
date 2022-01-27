@@ -94,10 +94,10 @@ const Blog = () => {
               <div class="border-b-2 border-gray-300 first:border-none ">
                 <div class=" py-2 ">
                   <h2 class="text-2xl font-bold mb-2 text-gray-800">
-                    {`${blog.title.slice(0, 90).concat("...")}`}
+                    {`${blog.title.slice(0, 35).concat("...")}`}
                   </h2>
                   <p class="text-gray-700">
-                    {`${blog.description.slice(0, 200).concat("...")}`}
+                    {`${blog.description.slice(0, 100).concat("...")}`}
 
                     <Link to="/" class="text-yellow-400">
                       Read More
