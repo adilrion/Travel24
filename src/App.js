@@ -1,11 +1,13 @@
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AdminDashboard from "./Components/AdminDashboard/AdminDashboard/AdminDashboard";
 import AuthProvider from "./Components/Contexts/AuthProvider/AuthProvider";
 import AboutUs from "./Components/Pages/AboutUs/AboutUs";
 import Blog from "./Components/Pages/Blog/Blog";
 import Home from "./Components/Pages/Home/Home";
 import NextTrip from "./Components/Pages/NextTrip/NextTrip";
 import LogIn from "./Components/Shared/LogIn/LogIn";
+import UserDashboard from "./Components/UserDashboard/UserDashboard/UserDashboard";
 
 function App() {
   return (
@@ -21,6 +23,11 @@ function App() {
             <Route path="/next-trip" element={<NextTrip />} />
             <Route path="/log-in" element={<LogIn />} />
             <Route path="/write-blog" element={<LogIn />} />
+            <Route path="/admin-panel" element={<AdminDashboard />} />
+            <Route
+              path="/user-dashboard/user-profile"
+              element={<UserDashboard />}
+            />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

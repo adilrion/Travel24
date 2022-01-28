@@ -6,6 +6,7 @@ import { HashLink } from "react-router-hash-link";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/black-01.jpg";
 import written from "../../Images/written icon.png";
+import admin from "../../Images/admin.png";
 
 const navigation = [
   { name: "Home", href: "home", current: true },
@@ -86,15 +87,14 @@ const Navigation = () => {
                   {user.email ? (
                     <Menu as="div" className="ml-3 relative">
                       <div className="flex">
-                        <HashLink
-                          to="/home#write-blog"
-                          scroll={(el) =>
-                            el.scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                            })
-                          }
-                        >
+                        <Link to="/admin-panel" className="mx-3">
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src={admin}
+                            alt=""
+                          />
+                        </Link>
+                        <HashLink to="/home#write-blog">
                           <img
                             className="h-8 w-8 rounded-full"
                             src={written}
@@ -122,8 +122,21 @@ const Navigation = () => {
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-40">
                           <Menu.Item>
                             {({ active }) => (
+                              <HashLink
+                                to="/home#write-blog"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                Write a Blog
+                              </HashLink>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
                               <Link
-                                to="#"
+                                to="/user-dashboard/user-profile"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"

@@ -5,7 +5,7 @@ import Banner from "../Banner/Banner";
 import Blog from "../Blog/Blog";
 import BlogUploadForm from "../Blog/BlogUploadForm";
 import NextTrip from "../NextTrip/NextTrip";
-
+import Footer from "../../Shared/Footer/Footer";
 const Home = () => {
   return (
     <div id="home">
@@ -15,6 +15,7 @@ const Home = () => {
       <BlogUploadForm></BlogUploadForm>
       <NextTrip></NextTrip>
       <AboutUs></AboutUs>
+      <Footer></Footer>
     </div>
   );
 };

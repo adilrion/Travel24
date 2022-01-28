@@ -1,11 +1,10 @@
-import { LockClosedIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/black-01.jpg";
 import facebook from "../../Images/f.png";
 import google from "../../Images/g.png";
-import instaram from "../../Images/insta.png";
+import instagram from "../../Images/insta.png";
 import twitter from "../../Images/tw.png";
 import Navigation from "../Navigation/Navigation";
 import "./LogIn.css";
@@ -62,7 +61,7 @@ const LogIn = () => {
                 alt="Workflow"
               />
               <h2 className="mt-6 text-center text-xl md:text-2xl lg:text-3xl font-extrabold text-cyan-600 capitalize ">
-                Sign in to your account
+                Welcome Back!
                 <br />
                 <span className="uppercase text-4xl text-[#fef900]">
                   Travel24
@@ -182,7 +181,7 @@ const LogIn = () => {
                       onBlur={handleOnBlur}
                       autoComplete="email"
                       required
-                      className="appearance-none mb-2 mb-2 rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      className="appearance-none mb-2 rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Email address"
                     />
                   </div>
@@ -296,7 +295,7 @@ const LogIn = () => {
               <button>
                 <img
                   className="w-7/12 h-2/6 rounded-full mx-auto"
-                  src={instaram}
+                  src={instagram}
                   alt="Workflow"
                 />
               </button>
