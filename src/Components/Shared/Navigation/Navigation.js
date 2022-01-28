@@ -86,11 +86,21 @@ const Navigation = () => {
                   {user.email ? (
                     <Menu as="div" className="ml-3 relative">
                       <div className="flex">
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src={written}
-                          alt=""
-                        />
+                        <HashLink
+                          to="/home#write-blog"
+                          scroll={(el) =>
+                            el.scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                            })
+                          }
+                        >
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src={written}
+                            alt=""
+                          />
+                        </HashLink>
                         <Menu.Button className="bg-gray-800 ml-4 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                           <span className="sr-only">Open user menu</span>
                           <img

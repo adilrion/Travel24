@@ -20,6 +20,7 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/next-trip" element={<NextTrip />} />
             <Route path="/log-in" element={<LogIn />} />
+            <Route path="/write-blog" element={<LogIn />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

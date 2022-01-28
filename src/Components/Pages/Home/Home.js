@@ -3,6 +3,7 @@ import Navigation from "../../Shared/Navigation/Navigation";
 import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
 import Blog from "../Blog/Blog";
+import BlogUploadForm from "../Blog/BlogUploadForm";
 import NextTrip from "../NextTrip/NextTrip";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Navigation></Navigation>
       <Banner></Banner>
       <Blog></Blog>
+      <BlogUploadForm></BlogUploadForm>
       <NextTrip></NextTrip>
       <AboutUs></AboutUs>
     </div>

@@ -64,7 +64,7 @@ const LogIn = () => {
               <h2 className="mt-6 text-center text-xl md:text-2xl lg:text-3xl font-extrabold text-cyan-600 capitalize ">
                 Sign in to your account
                 <br />
-                <span className="uppercase text-4xl text-yellow-500">
+                <span className="uppercase text-4xl text-[#fef900]">
                   Travel24
                 </span>
               </h2>
@@ -87,7 +87,7 @@ const LogIn = () => {
                       onChange={handleOnBlur}
                       // autoComplete="email"
                       required
-                      className="appearance-none mb-2 rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      className="appearance-none mb-2 rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Email address"
                     />
                   </div>
@@ -105,7 +105,7 @@ const LogIn = () => {
                       onChange={handleOnBlur}
                       // autoComplete="current-password"
                       required
-                      className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
+                      className="appearance-none relative block w-full px-3 py-3 mb-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm"
                       placeholder="Password"
                     />
                   </div>
