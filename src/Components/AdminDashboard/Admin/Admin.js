@@ -1,15 +1,19 @@
 import { React, Fragment, useState } from "react";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { Dialog, Menu, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { ViewGridIcon } from "@heroicons/react/solid";
-import { Link } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
+import PendingBlog from "../PendingBlog/PendingBlog";
+import Administrator from "../Administrator/Administrator";
+import Visitor from "../Visitor/Visitor";
+import BlogUploadForm from "../../Pages/Blog/BlogUploadForm";
 
 const subCategories = [
   { name: "Home", href: "/home" },
-  { name: "Pending Blog", href: "/pending-blog" },
-  { name: "Role", href: "/Role" },
-  { name: "Blog", href: "/blog" },
-  { name: "Visitor", href: "/visitor" },
+  { name: "Pending Blog", href: "pending-blog" },
+  { name: "Administrator", href: "administrator" },
+  { name: "Visitor", href: "visitor" },
+  { name: "New Blog", href: "new-blog" },
 ];
 
 function classNames(...classes) {
@@ -20,7 +24,7 @@ const Admin = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-[#ef4270] text-white text-lg ">
         <div>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -71,9 +75,9 @@ const Admin = () => {
           </Transition.Root>
 
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative z-10 flex items-baseline justify-between pt-5 pb-6 border-b border-gray-900">
-              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-                Travel24
+            <div className="relative z-10 flex items-baseline justify-between pt-5 pb-6 border-b border-white">
+              <h1 className="text-4xl font-extrabold tracking-tight text-white">
+                <Link to="/home">Travel24</Link>
               </h1>
 
               <div className="flex items-center">
@@ -88,16 +92,16 @@ const Admin = () => {
               </div>
             </div>
 
-            <section aria-labelledby="products-heading" className="pt-6 pb-24">
-              <div className="grid grid-cols-1 lg:grid-cols-4">
-                <div className="hidden lg:block bg-[#886a6a] h-fit">
+            <section aria-labelledby="products-heading" className="pt-6">
+              <div className="grid gap-5 grid-cols-1 lg:grid-cols-4">
+                <div className="hidden lg:block  rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 h-fit">
                   <h3 className="sr-only">Categories</h3>
                   <div className="flex flex-col text-sm font-medium text-gray-900">
                     {subCategories.map((category) => (
                       <Link
                         to={category.href}
-                        className="py-5 px-5"
                         key={category.name}
+                        className="py-4 px-5 text-lg font-medium text-[#ffff]"
                       >
                         {category.name}
                       </Link>
@@ -106,17 +110,21 @@ const Admin = () => {
                 </div>
 
                 {/* Product grid */}
-                <div className="bg-[#cecdcddc] lg:col-span-3 min-h-screen">
-                  {/* Replace with your content */}
-
-                  {/* /End replace */}
+                <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 lg:col-span-3 min-h-screen p-5 font-normal">
+                  <Outlet />
+                  <Routes>
+                    <Route path="/" element={<PendingBlog />} />
+                    <Route path="pending-blog" element={<PendingBlog />} />
+                    <Route path="administrator" element={<Administrator />} />
+                    <Route path="visitor" element={<Visitor />} />
+                    <Route path="new-blog" element={<BlogUploadForm />} />
+                  </Routes>
                 </div>
               </div>
             </section>
           </main>
         </div>
       </div>
-      )
     </>
   );
 };
