@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./Blog.css";
-import logo from "../../Images/black-01.jpg";
 import axios from "axios";
+import React, { useState } from "react";
+import logo from "../../Images/black-01.jpg";
+import "./Blog.css";
 const BlogUploadForm = () => {
   const [data, setData] = useState({});
   const [sendSuccess, setSentSuccess] = useState(false);
@@ -30,7 +30,7 @@ const BlogUploadForm = () => {
       },
     };
     axios
-      .post("http://localhost:5000/blog", data, option)
+      .post("https://still-bayou-58826.herokuapp.com/blog", data, option)
       .then((res) => {
         setUpload(0);
         setSentSuccess(true);

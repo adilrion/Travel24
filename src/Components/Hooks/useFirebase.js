@@ -3,12 +3,11 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
-  sendPasswordResetEmail,
-  // RecaptchaVerifier,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/Firebase.init";
@@ -157,7 +156,7 @@ const useFirebase = () => {
       password,
       photoURL: "",
     };
-    fetch("http://localhost:5000/users", {
+    fetch("https://still-bayou-58826.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
