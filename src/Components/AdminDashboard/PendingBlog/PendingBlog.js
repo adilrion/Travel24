@@ -99,9 +99,9 @@ const PendingBlog = () => {
                               alt=""
                             />
                           </div>
-                          <div className="ml-4">
+                          <div className="ml-4 max-w-1/12">
                             <div className="text-sm font-medium text-gray-900">
-                              {`${blog.WriterName.slice(0, 30)}`}
+                              {blog.WriterName}
                             </div>
                             <div className="text-sm text-gray-500">
                               {blog?.email ? `${blog.email}` : "Not exist"}
