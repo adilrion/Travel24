@@ -4,6 +4,7 @@ import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
 import img1 from "../../Images/images1.jpg";
 import img2 from "../../Images/images2.jpg";
 import img3 from "../../Images/images3.jpg";
+import SocialMedia from "../../Shared/SocialMedia";
 
 const featuredProducts = [`${img1}`, `${img2}`, `${img3}`];
 
@@ -76,6 +77,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
+        <SocialMedia></SocialMedia>
       </div>
     </section>
   );

@@ -12,7 +12,7 @@ const Home = () => {
       <Navigation></Navigation>
       <Banner></Banner>
       <Blog></Blog>
-      <BlogUploadForm></BlogUploadForm>
+      {/* <BlogUploadForm></BlogUploadForm> */}
       <NextTrip></NextTrip>
       <AboutUs></AboutUs>
       <Footer></Footer>

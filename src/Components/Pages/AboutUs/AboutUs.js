@@ -3,7 +3,7 @@ import React from "react";
 const AboutUs = () => {
   return (
     <div>
-      <h1>this is about us section</h1>
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"></div>
     </div>
   );
 };
