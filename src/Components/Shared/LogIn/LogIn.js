@@ -14,7 +14,6 @@ const LogIn = () => {
   const { signInWithGoogle, registerUser, loginUser } = useAuth();
   const [newUser, setSetNewUser] = useState(true);
   const [loginData, setLoginData] = useState({});
-  console.log(loginData);
 
   const handleOnBlur = (e) => {
     const field = e.target.name;

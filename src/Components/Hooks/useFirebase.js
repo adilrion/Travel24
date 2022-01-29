@@ -83,9 +83,6 @@ const useFirebase = () => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        /*  getIdToken(user).then((idToken) => {
-          setToken(idToken);
-        }); */
       } else {
         setUser({});
       }
@@ -94,12 +91,6 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, [auth]);
   //.....................End..............................//
-
-  useEffect(() => {
-    fetch(`https://obscure-atoll-04975.herokuapp.com/users/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
-  }, [user.email]);
 
   //.......................User Login..............................    ...//
 
@@ -170,13 +161,11 @@ const useFirebase = () => {
   const saveUserWithGoogleSingin = (email, displayName, photoURL, method) => {
     const user = {
       email,
-      firstName: displayName,
+      name: displayName,
       photoURL,
-      number: "",
-      gender: "",
       password: "",
     };
-    fetch("https://obscure-atoll-04975.herokuapp.com/users", {
+    fetch("https://still-bayou-58826.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -184,6 +173,12 @@ const useFirebase = () => {
       body: JSON.stringify(user),
     }).then();
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
   //..........................End.............................//
   return {
     user,
@@ -196,7 +191,6 @@ const useFirebase = () => {
     logout,
     forgetPassword,
     login,
-    // token,
   };
 };
 

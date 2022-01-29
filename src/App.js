@@ -5,6 +5,7 @@ import AdminDashboard from "./Components/AdminDashboard/AdminDashboard/AdminDash
 import AuthProvider from "./Components/Contexts/AuthProvider/AuthProvider";
 import AboutUs from "./Components/Pages/AboutUs/AboutUs";
 import Blog from "./Components/Pages/Blog/Blog";
+import BlogDetails from "./Components/Pages/Blog/BlogDetails";
 import BlogUploadForm from "./Components/Pages/Blog/BlogUploadForm";
 import Home from "./Components/Pages/Home/Home";
 import NextTrip from "./Components/Pages/NextTrip/NextTrip";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/next-trip" element={<NextTrip />} />
             <Route path="/log-in" element={<LogIn />} />
             <Route path="/write-blog" element={<BlogUploadForm />} />
+            <Route path="/blog-details/:id" element={<BlogDetails />} />
             <Route path="/admin-panel/*" element={<AdminDashboard />} />
             <Route path="/admin/*" element={<Admin />} />
             <Route

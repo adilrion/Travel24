@@ -7,7 +7,6 @@ const Blog = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [blog, setBlog] = useState([]);
   const [page, setPage] = useState(0);
-  console.log(page);
   const [pageCount, setPageCount] = useState(0);
   const size = 5;
 
@@ -22,6 +21,16 @@ const Blog = () => {
         setPageCount(pageCountNumber);
       });
   }, [page]);
+
+  const [latestBlog, setLatestBlog] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/blog/latest-blog")
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLoading(false);
+        setLatestBlog(data);
+      });
+  }, []);
 
   return (
     <div id="blog" className="p-2 bg-gray-200">
@@ -46,7 +55,10 @@ const Blog = () => {
                     <p className="text-gray-700 text-base">
                       {`${blog.experience.slice(0, 250).concat("...")}`}
 
-                      <Link to="/" className="text-yellow-400">
+                      <Link
+                        to={`/blog-details/${blog._id}`}
+                        className="text-yellow-400"
+                      >
                         Read More
                       </Link>
                     </p>
@@ -133,7 +145,7 @@ const Blog = () => {
           </div>
 
           <div className="col-span-2 lg:col-span-1 flex flex-col-reverse popular-article bg-white h-fit  w-full px-5 py-2 rounded-md ">
-            {blog.map((blog) => (
+            {latestBlog.map((blog) => (
               <div
                 className="border-b-2 border-gray-300 first:border-none "
                 key={blog._id}
@@ -145,7 +157,10 @@ const Blog = () => {
                   <p className="text-gray-700">
                     {`${blog.experience.slice(0, 92).concat("..")}`}
 
-                    <Link to="/" className="text-yellow-400">
+                    <Link
+                      to={`/blog-details/${blog._id}`}
+                      className="text-yellow-400"
+                    >
                       Read More
                     </Link>
                   </p>

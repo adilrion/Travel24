@@ -19,11 +19,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const Navigation = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isLoading, admin } = useAuth();
 
   return (
     <>
-      <Disclosure as="nav" className="bg-neutral-800 w-full fixed top-0 z-40">
+      <Disclosure as="nav" className="bg-neutral-800 w-full top-0 z-40">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -87,13 +87,14 @@ const Navigation = () => {
                   {user.email ? (
                     <Menu as="div" className="ml-3 relative">
                       <div className="flex">
-                        <Link to="/admin-panel" className="mx-3">
-                          <img
-                            className="h-8 w-8 rounded-full"
-                            src={admin}
-                            alt=""
-                          />
-                        </Link>
+                        {admin && (
+                          <Link
+                            to="/admin-panel"
+                            className="mx-3 text-white hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          >
+                            Admin Panel
+                          </Link>
+                        )}
                         <HashLink to="/home#write-blog">
                           <img
                             className="h-8 w-8 rounded-full"

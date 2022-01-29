@@ -24,7 +24,7 @@ const Admin = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   return (
     <>
-      <div className="bg-[#ef4270] text-white text-lg ">
+      <div className="bg-[#121d4db0] text-white text-lg ">
         <div>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>

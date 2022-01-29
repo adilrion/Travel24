@@ -5,7 +5,6 @@ import "./Blog.css";
 const BlogUploadForm = () => {
   const [data, setData] = useState({});
   const [sendSuccess, setSentSuccess] = useState(false);
-  console.log(sendSuccess);
   const [authError, setAuthError] = useState("");
   const [upload, setUpload] = useState(0);
   const handleOnBlur = (e) => {
@@ -15,7 +14,6 @@ const BlogUploadForm = () => {
     newLoginData[field] = value;
     setData(newLoginData);
   };
-  console.log(data);
   const handleSubmit = (e) => {
     e.preventDefault();
 

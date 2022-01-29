@@ -26,10 +26,11 @@ const Footer = () => {
                     d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                   />
                 </svg>
-                <span class="ml-3 text-xl text-white">DEV</span>
+                <span class="ml-3 text-xl text-white">Travel24</span>
               </Link>
               <p class="mt-2 text-sm text-white">
-                Air plant banjo lyft occupy retro adaptogen indego
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nostrum, impedit!
               </p>
             </div>
             <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
