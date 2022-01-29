@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/black-01.jpg";
 import "./Blog.css";
 const BlogUploadForm = () => {
+  const { user } = useAuth();
   const [data, setData] = useState({});
   const [sendSuccess, setSentSuccess] = useState(false);
   const [authError, setAuthError] = useState("");
@@ -17,7 +19,6 @@ const BlogUploadForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const option = {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;
@@ -62,27 +63,29 @@ const BlogUploadForm = () => {
               </h2>
             </div>
             <form onSubmit={handleSubmit} method="post">
-              <div className="md:flex items-center mt-12">
-                <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+              <div className="md:flex items-center mt-12 mb-4">
+                <div className="w-full md:w-1/2 flex flex-col mr-4  md:mt-0 mt-4">
                   <label className="font-semibold text-xl leading-none">
                     Writer Name<span className="text-yellow-500">*</span>
                   </label>
                   <input
                     name="WriterName"
                     type="text"
-                    onBlur={handleOnBlur}
+                    onChange={handleOnBlur}
+                    defaultValue={user?.displayName}
                     className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
                     required
                   />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col">
                   <label className="font-semibold  text-xl leading-none">
-                    Date<span className="text-yellow-500">*</span>
+                    Writer Email<span className="text-yellow-500">*</span>
                   </label>
                   <input
-                    name="Date"
-                    type="date"
-                    onBlur={handleOnBlur}
+                    name="email"
+                    type="email"
+                    defaultValue={user?.email}
+                    onChange={handleOnBlur}
                     className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
                     required
                   />

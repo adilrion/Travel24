@@ -20,7 +20,6 @@ function classNames(...classes) {
 }
 const Navigation = () => {
   const { user, logout, isLoading, admin } = useAuth();
-  console.log(admin);
 
   return (
     <>

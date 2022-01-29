@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 
 const PendingBlog = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [blogId, setBlogId] = useState(" ");
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  console.log(error);
   const [blog, setBlog] = useState([]);
   useEffect(() => {
     fetch("https://still-bayou-58826.herokuapp.com/blog/latest-blog")
@@ -12,6 +17,37 @@ const PendingBlog = () => {
         setBlog(data);
       });
   }, []);
+
+  const handleOnBlur = (id) => {
+    setBlogId(id);
+  };
+
+  const handleLoginSubmit = (e) => {
+    // e.preventDefault();
+    console.log(e);
+    const user = { e };
+    console.log(e);
+    fetch(
+      "https://still-bayou-58826.herokuapp.com/blog/pending-blog/approved",
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setLoading(false);
+          setSuccess(true);
+        }
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
   return (
     <div className="flex flex-col article-section">
@@ -98,12 +134,12 @@ const PendingBlog = () => {
                         </Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <Link
-                          to="#"
+                        <button
+                          onClick={() => handleLoginSubmit(`${blog._id}`)}
                           className="text-indigo-600 hover:text-indigo-900"
                         >
                           Approved
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   </>
