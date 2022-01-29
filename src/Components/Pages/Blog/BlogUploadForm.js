@@ -71,7 +71,7 @@ const BlogUploadForm = () => {
                   <input
                     name="WriterName"
                     type="text"
-                    onChange={handleOnBlur}
+                    onBlur={handleOnBlur}
                     defaultValue={user?.displayName}
                     className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
                     required
@@ -85,7 +85,7 @@ const BlogUploadForm = () => {
                     name="email"
                     type="email"
                     defaultValue={user?.email}
-                    onChange={handleOnBlur}
+                    onBlur={handleOnBlur}
                     className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
                     required
                   />

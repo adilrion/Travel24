@@ -61,13 +61,14 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        setUser(user);
         saveUserWithGoogleSingin(
           user.email,
           user.displayName,
           user.photoURL,
           "PUT"
         );
+        setUser(user);
+
         setAuthError("");
         history("/");
       })

@@ -8,7 +8,7 @@ const Blog = () => {
   const [blog, setBlog] = useState([]);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
-  const size = 4;
+  const size = 5;
 
   useEffect(() => {
     fetch(

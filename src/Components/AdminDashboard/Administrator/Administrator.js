@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const people = [
@@ -16,9 +16,18 @@ const people = [
 
 const Administrator = () => {
   const [email, setEmail] = useState(" ");
+  const [administrator, setAdministrator] = useState([]);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  console.log(administrator);
+  useEffect(() => {
+    fetch("https://still-bayou-58826.herokuapp.com/users/administration/role")
+      .then((res) => res.json())
+      .then((data) => {
+        setAdministrator(data);
+      });
+  }, []);
 
   const handleOnBlur = (e) => {
     setEmail(e.target.value);
@@ -87,14 +96,14 @@ const Administrator = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {people.map((person) => (
+                  {administrator.map((person) => (
                     <tr key={person.email}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
                             <img
                               className="h-10 w-10 rounded-full"
-                              src={person.image}
+                              src={person.photoURL}
                               alt=""
                             />
                           </div>
@@ -110,10 +119,10 @@ const Administrator = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">
-                          {person.title}
+                          {person.title ? person.title : "Whatever"}
                         </div>
                         <div className="text-sm text-gray-500">
-                          {person.department}
+                          {person.department ? person.department : "Nothing"}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">

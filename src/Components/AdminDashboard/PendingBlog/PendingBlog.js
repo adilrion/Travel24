@@ -10,23 +10,17 @@ const PendingBlog = () => {
   console.log(error);
   const [blog, setBlog] = useState([]);
   useEffect(() => {
-    fetch("https://still-bayou-58826.herokuapp.com/blog/latest-blog")
+    fetch("https://still-bayou-58826.herokuapp.com/blog/latest-blog/pending")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
         setBlog(data);
       });
-  }, []);
-
-  const handleOnBlur = (id) => {
-    setBlogId(id);
-  };
+  }, [blog]);
 
   const handleLoginSubmit = (e) => {
     // e.preventDefault();
-    console.log(e);
     const user = { e };
-    console.log(e);
     fetch(
       "https://still-bayou-58826.herokuapp.com/blog/pending-blog/approved",
       {
