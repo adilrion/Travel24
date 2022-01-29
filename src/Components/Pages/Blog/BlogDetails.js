@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import avatar from "../../Images/avatar.png";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
-import avatar from "../../Images/avatar.png";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -10,7 +10,7 @@ const BlogDetails = () => {
   console.log(blogDetails);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blog-details/${id}`)
+    fetch(`https://still-bayou-58826.herokuapp.com/blog-details/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setBlogDetails(data);
@@ -22,7 +22,7 @@ const BlogDetails = () => {
       <Navigation></Navigation>
       <div className="article-section w-full min-h-screen pb-5 bg-indigo-100 sm:px-6 lg:px-8">
         <div className="lg:grid lg:gap-4 2xl:gap-10 lg:grid-cols-6  max-w-7xl mx-auto px-2 py-10 ">
-          <div class="lg:order-1 lg:col-span-4 rounded-lg">
+          <div className="lg:order-1 lg:col-span-4 rounded-lg">
             <div className=" bg-white max-w-full shadow-md rounded-md mb-10">
               <img
                 className="w-6/6 md:w-6/6 rounded-t-md"
@@ -56,7 +56,7 @@ const BlogDetails = () => {
               </div>
             </div>
           </div>
-          <div class="bg-gray-900 lg:order-2  lg:col-span-2 rounded-lg shadow-xl pb-4 mb-5 lg:mb-0"></div>
+          <div className="bg-gray-900 lg:order-2  lg:col-span-2 rounded-lg shadow-xl pb-4 mb-5 lg:mb-0"></div>
         </div>
       </div>
       <Footer></Footer>

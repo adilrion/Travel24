@@ -17,7 +17,7 @@ const Visitor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://still-bayou-58826.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);

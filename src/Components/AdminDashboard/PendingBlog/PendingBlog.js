@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-const people = [
-  {
-    name: "Jane Cooper",
-    title: "Regional Paradigm Technician",
-    department: "Optimization",
-    role: "Admin",
-    email: "jane.cooper@example.com",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-  // More people...
-];
+
 const PendingBlog = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [blog, setBlog] = useState([]);
   useEffect(() => {
-    fetch("https://still-bayou-58826.herokuapp.com/blog")
+    fetch("https://still-bayou-58826.herokuapp.com/blog/latest-blog")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
@@ -64,7 +53,7 @@ const PendingBlog = () => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {blog.map((blog) => (
                   <>
-                    <tr key={blog.email}>
+                    <tr key={blog._id}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">

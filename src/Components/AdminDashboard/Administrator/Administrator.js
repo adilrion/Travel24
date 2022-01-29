@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const people = [
@@ -29,7 +29,7 @@ const Administrator = () => {
     setLoading(true);
     e.preventDefault();
     const user = { email };
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://still-bayou-58826.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -47,8 +47,6 @@ const Administrator = () => {
         setError(error.message);
       });
   };
-
-
 
   return (
     <>
@@ -146,11 +144,11 @@ const Administrator = () => {
       <div className="mt-10">
         {success && (
           <div
-            class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700"
+            className="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700"
             role="alert"
           >
             <svg
-              class="w-5 h-5 inline mr-3"
+              className="w-5 h-5 inline mr-3"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -162,36 +160,36 @@ const Administrator = () => {
               ></path>
             </svg>
             <div>
-              <span class="font-medium">Success alert!</span> Lorem ipsum dolor
-              sit amet. Lorem ipsum dolor sit.
+              <span className="font-medium">Success alert!</span> Lorem ipsum
+              dolor sit amet. Lorem ipsum dolor sit.
             </div>
           </div>
         )}
-        <div class="flex flex-col max-w-4xl md:h-56 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row ">
-          <div class="md:flex items-center justify-center md:w-1/2 md:bg-gray-700">
-            <div class="py-6 px-8 md:py-0">
-              <h2 class="text-gray-700 text-2xl font-bold md:text-gray-100">
+        <div className="flex flex-col max-w-4xl md:h-56 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row ">
+          <div className="md:flex items-center justify-center md:w-1/2 md:bg-gray-700">
+            <div className="py-6 px-8 md:py-0">
+              <h2 className="text-gray-700 text-2xl font-bold md:text-gray-100">
                 Make Your Trusted Administrator
               </h2>
-              <p class="mt-2 text-gray-600 md:text-gray-400">
+              <p className="mt-2 text-gray-600 md:text-gray-400">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consectetur obcaecati odio
               </p>
             </div>
           </div>
 
-          <div class="flex items-center justify-center pb-6 md:py-0 md:w-1/2 md:border-b-8 border-gray-700">
+          <div className="flex items-center justify-center pb-6 md:py-0 md:w-1/2 md:border-b-8 border-gray-700">
             {loading && (
-              <div class="flex justify-center items-center h-screen">
-                <div class="relative w-24 h-24 animate-spin rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-red-400 ">
-                  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gray-200 rounded-full border-2 border-white"></div>
+              <div className="flex justify-center items-center h-screen">
+                <div className="relative w-24 h-24 animate-spin rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-red-400 ">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gray-200 rounded-full border-2 border-white"></div>
                 </div>
               </div>
             )}
             <form onSubmit={handleLoginSubmit}>
-              <div class="flex flex-col rounded-lg overflow-hidden sm:flex-row">
+              <div className="flex flex-col rounded-lg overflow-hidden sm:flex-row">
                 <input
-                  class="py-3 px-4 bg-gray-200 text-gray-800 border-gray-300 border-2 outline-none placeholder-gray-500 focus:bg-gray-100"
+                  className="py-3 px-4 bg-gray-200 text-gray-800 border-gray-300 border-2 outline-none placeholder-gray-500 focus:bg-gray-100"
                   type="email"
                   name="email"
                   onBlur={handleOnBlur}
@@ -200,7 +198,7 @@ const Administrator = () => {
                 />
                 <button
                   type="submit"
-                  class="py-3 px-4 bg-gray-700 text-gray-100 font-semibold uppercase hover:bg-gray-600"
+                  className="py-3 px-4 bg-gray-700 text-gray-100 font-semibold uppercase hover:bg-gray-600"
                 >
                   Confirm
                 </button>
