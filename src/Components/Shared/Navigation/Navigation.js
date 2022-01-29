@@ -95,7 +95,7 @@ const Navigation = () => {
                             Admin Panel
                           </Link>
                         )}
-                        <HashLink to="/home#write-blog">
+                        <HashLink to="/write-blog">
                           <img
                             className="h-8 w-8 rounded-full"
                             src={written}
@@ -124,7 +124,7 @@ const Navigation = () => {
                           <Menu.Item>
                             {({ active }) => (
                               <HashLink
-                                to="/home#write-blog"
+                                to="/write-blog"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"

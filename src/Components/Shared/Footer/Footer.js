@@ -15,8 +15,8 @@ const Footer = () => {
             adipisicing elit. Modi, odio.
           </p>
           <div class="justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-            <a
-              href="#"
+            <Link
+              to="/"
               class="w-full sm:w-auto flex bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
             >
               <svg
@@ -40,9 +40,9 @@ const Footer = () => {
                   Mac App Store
                 </div>
               </div>
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/"
               class="w-full sm:w-auto flex bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
             >
               <svg
@@ -66,7 +66,7 @@ const Footer = () => {
                   Google Play
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
