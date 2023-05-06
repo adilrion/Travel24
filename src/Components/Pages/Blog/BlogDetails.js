@@ -10,7 +10,7 @@ const BlogDetails = () => {
   console.log(blogDetails);
 
   useEffect(() => {
-    fetch(`https://still-bayou-58826.herokuapp.com/blog-details/${id}`)
+    fetch(`https://travel24-server-5y5g.vercel.app/blog-details/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setBlogDetails(data);

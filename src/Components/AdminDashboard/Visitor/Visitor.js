@@ -17,7 +17,7 @@ const Visitor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState([]);
   useEffect(() => {
-    fetch("https://still-bayou-58826.herokuapp.com/users")
+    fetch("https://travel24-server-5y5g.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);

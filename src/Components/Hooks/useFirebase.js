@@ -1,13 +1,13 @@
 import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
+    createUserWithEmailAndPassword,
+    getAuth,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/Firebase.init";
@@ -148,7 +148,7 @@ const useFirebase = () => {
       password,
       photoURL: "",
     };
-    fetch("https://still-bayou-58826.herokuapp.com/users", {
+    fetch("https://travel24-server-5y5g.vercel.app/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -166,7 +166,7 @@ const useFirebase = () => {
       photoURL,
       password: "",
     };
-    fetch("https://still-bayou-58826.herokuapp.com/users", {
+    fetch("https://travel24-server-5y5g.vercel.app/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -176,7 +176,7 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    fetch(`https://still-bayou-58826.herokuapp.com/users/${user.email}`)
+    fetch(`https://travel24-server-5y5g.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);

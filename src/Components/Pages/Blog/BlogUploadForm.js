@@ -32,7 +32,7 @@ const BlogUploadForm = () => {
       },
     };
     axios
-      .post("https://still-bayou-58826.herokuapp.com/blog", data, option)
+      .post("https://travel24-server-5y5g.vercel.app/blog", data, option)
       .then((res) => {
         setUpload(0);
         setSentSuccess(true);

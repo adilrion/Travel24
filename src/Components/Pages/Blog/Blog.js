@@ -12,7 +12,7 @@ const Blog = () => {
 
   useEffect(() => {
     fetch(
-      `https://still-bayou-58826.herokuapp.com/blog?page=${page}&&size=${size}`
+      `https://travel24-server-5y5g.vercel.app/blog?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -26,7 +26,7 @@ const Blog = () => {
 
   const [latestBlog, setLatestBlog] = useState([]);
   useEffect(() => {
-    fetch("https://still-bayou-58826.herokuapp.com/blog/latest-blog")
+    fetch("https://travel24-server-5y5g.vercel.app/blog/latest-blog")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);

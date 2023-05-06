@@ -22,7 +22,7 @@ const Administrator = () => {
   const [error, setError] = useState("");
   console.log(administrator);
   useEffect(() => {
-    fetch("https://still-bayou-58826.herokuapp.com/users/administration/role")
+    fetch("https://travel24-server-5y5g.vercel.app/users/administration/role")
       .then((res) => res.json())
       .then((data) => {
         setAdministrator(data);
@@ -38,7 +38,7 @@ const Administrator = () => {
     setLoading(true);
     e.preventDefault();
     const user = { email };
-    fetch("https://still-bayou-58826.herokuapp.com/users/admin", {
+    fetch("https://travel24-server-5y5g.vercel.app/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

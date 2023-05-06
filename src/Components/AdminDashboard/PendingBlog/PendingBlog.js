@@ -10,7 +10,7 @@ const PendingBlog = () => {
   console.log(error);
   const [blog, setBlog] = useState([]);
   useEffect(() => {
-    fetch("https://still-bayou-58826.herokuapp.com/blog/latest-blog/pending")
+    fetch("https://travel24-server-5y5g.vercel.app/blog/latest-blog/pending")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
@@ -22,7 +22,7 @@ const PendingBlog = () => {
     // e.preventDefault();
     const user = { e };
     fetch(
-      "https://still-bayou-58826.herokuapp.com/blog/pending-blog/approved",
+      "https://travel24-server-5y5g.vercel.app/blog/pending-blog/approved",
       {
         method: "PUT",
         headers: {
